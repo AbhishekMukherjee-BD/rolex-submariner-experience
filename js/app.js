@@ -77,9 +77,50 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnCloseMenu = document.getElementById('btn-close-menu');
   const megaMenuOverlay = document.getElementById('mega-menu-overlay');
 
-  // 3. PROGRESSIVE FRAME PRELOADER
+  // 3. HARDWARE-ACCELERATED WAVE PRELOADER (ImageBitmap + Progressive Stride)
+  async function loadSingleFrame(idx, callback) {
+    if (state.images[idx]) {
+      if (callback) callback(state.images[idx]);
+      return state.images[idx];
+    }
+
+    const path = CONFIG.framePath(idx);
+
+    // High performance off-thread GPU bitmap decoding
+    if (window.createImageBitmap && window.fetch) {
+      try {
+        const res = await fetch(path);
+        if (res.ok) {
+          const blob = await res.blob();
+          const bmp = await createImageBitmap(blob);
+          state.images[idx] = bmp;
+          state.loadedCount++;
+          if (callback) callback(bmp);
+          return bmp;
+        }
+      } catch (err) {
+        // Fallback to Image() on fetch failure or cross-origin
+      }
+    }
+
+    // Classic HTMLImageElement fallback
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = path;
+      img.onload = () => {
+        state.images[idx] = img;
+        state.loadedCount++;
+        if (callback) callback(img);
+        resolve(img);
+      };
+      img.onerror = () => {
+        setTimeout(() => { img.src = path; }, 500);
+      };
+    });
+  }
+
   function initPreloader() {
-    // Immediate frame 0 load to unlock the hero UI with zero lag
+    // Wave 1: Instant Hero Frame (0ms - 100ms)
     loadSingleFrame(0, () => {
       renderFrame(0);
       updateLoaderProgress(100);
@@ -88,37 +129,24 @@ document.addEventListener('DOMContentLoaded', () => {
           loaderCurtain.classList.add('loaded');
           loaderCurtain.style.display = 'none';
         }
-      }, 100);
+      }, 80);
     });
 
-    // Safety fallback: guaranteed curtain lift in under 400ms
+    // Safety fallback: guaranteed curtain lift in under 350ms
     setTimeout(() => {
       if (loaderCurtain && !loaderCurtain.classList.contains('loaded')) {
         loaderCurtain.classList.add('loaded');
         loaderCurtain.style.display = 'none';
       }
-    }, 400);
+    }, 350);
 
-    // Preload key milestone frames
-    [CONFIG.v1EndFrame, CONFIG.v2EndFrame].forEach(idx => loadSingleFrame(idx));
+    // Wave 2: Critical Anchors & Initial Runway (Frames 1-20, Milestone 142, Milestone 236)
+    const wave2 = [CONFIG.v1EndFrame, CONFIG.v2EndFrame];
+    for (let i = 1; i <= 20; i++) wave2.push(i);
+    wave2.forEach(idx => loadSingleFrame(idx));
+
+    // Wave 3: Progressive Stride Queue (Pass 1: every 4th frame, Pass 2: intermediate frames)
     loadRemainingFrames();
-  }
-
-  function loadSingleFrame(idx, callback) {
-    if (state.images[idx]) {
-      if (callback) callback();
-      return;
-    }
-    const img = new Image();
-    img.src = CONFIG.framePath(idx);
-    img.onload = () => {
-      state.images[idx] = img;
-      state.loadedCount++;
-      if (callback) callback();
-    };
-    img.onerror = () => {
-      setTimeout(() => { img.src = CONFIG.framePath(idx); }, 500);
-    };
   }
 
   function loadRemainingFrames() {
@@ -126,7 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pass1 = [];
     const pass2 = [];
 
-    for (let i = 0; i < CONFIG.totalFrames; i++) {
+    for (let i = 21; i < CONFIG.totalFrames; i++) {
+      if (i === CONFIG.v1EndFrame || i === CONFIG.v2EndFrame) continue;
       if (i % stride === 0) pass1.push(i);
       else pass2.push(i);
     }
@@ -140,17 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
       loadSingleFrame(nextIdx, () => {
         const pct = Math.floor((state.loadedCount / CONFIG.totalFrames) * 100);
         updateLoaderProgress(pct);
-        if (pct >= 25 && loaderCurtain && !loaderCurtain.classList.contains('loaded')) {
-          loaderCurtain.classList.add('loaded');
-        }
       });
 
       if (qIdx < queue.length) {
-        requestAnimationFrame(processQueue);
+        if (window.requestIdleCallback) {
+          requestIdleCallback(processQueue);
+        } else {
+          requestAnimationFrame(processQueue);
+        }
       }
     }
 
-    for (let i = 0; i < 8; i++) {
+    // 6 Concurrent background HTTP/2 stream pipelines
+    for (let i = 0; i < 6; i++) {
       processQueue();
     }
   }
