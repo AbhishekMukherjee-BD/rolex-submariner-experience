@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>IWC Schaffhausen — Swiss Luxury Watches &amp; Mechanical Excellence</title>
+  <meta name="description" content="Explore IWC Schaffhausen luxury timepieces, including the Portugieser, Pilot's Watches, and the mechanical deconstruction interactive experience. Engineered for extremes.">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       PROGRESSIVE LOADER CURTAIN
+       ========================================================================== -->
+  <div class="loader-curtain" id="loader-curtain">
+    <div class="loader-logo-title">HAUTE HORLOGERIE</div>
+    <div class="loader-sub-title">SWISS MECHANICAL EXCELLENCE</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MINIMALIST FLOATING HEADER
+       ========================================================================== -->
+  <header class="iwc-header">
+    <div class="header-left">
+      <button class="menu-trigger" id="btn-open-menu" aria-label="Open Navigation Menu">
+        <div class="hamburger-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span>MENU</span>
+      </button>
+
+      <ul class="header-nav-links">
+        <li class="header-nav-item"><a href="#timepieces">TIMEPIECES</a></li>
+        <li class="header-nav-item"><a href="#hero-stage">DECONSTRUCTION</a></li>
+        <li class="header-nav-item"><a href="#manufacture">MANUFACTURE</a></li>
+        <li class="header-nav-item"><a href="#stories">JOURNAL</a></li>
+      </ul>
+    </div>
+
+    <!-- Center: Clean balanced spacer (IWC logo removed) -->
+    <div class="header-center"></div>
+
+    <div class="header-right">
+      <!-- Search Icon -->
+      <a href="#timepieces" class="icon-btn" aria-label="Search Collection">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="16.5" y1="16.5" x2="21.5" y2="21.5"/>
+        </svg>
+      </a>
+
+      <!-- Boutique Locator Icon -->
+      <a href="#boutiques" class="icon-btn" aria-label="Find a Boutique">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+      </a>
+
+      <!-- Book An Appointment Pill Button -->
+      <a href="#boutiques" class="btn-iwc-pill">APPOINTMENT</a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       OFF-CANVAS SLIDE-OUT MEGA MENU DRAWER
+       ========================================================================== -->
+  <div class="mega-menu-overlay" id="mega-menu-overlay" aria-hidden="true">
+    <div class="mega-menu-header">
+      <span class="mega-menu-brand">HAUTE HORLOGERIE • GENÈVE</span>
+      <button class="btn-close-menu" id="btn-close-menu">
+        <span>CLOSE ✕</span>
+      </button>
+    </div>
+
+    <div class="mega-menu-content">
+      <!-- Column 1: Featured Collections -->
+      <div>
+        <span class="mega-menu-col-title">COLLECTIONS</span>
+        <div class="mega-collections-grid">
+          <a href="#timepieces" class="mega-collection-item menu-link-close">
+            <h4>PORTUGIESER</h4>
+            <p>An icon of pure elegance and chronometric precision since 1939.</p>
+          </a>
+          <a href="#timepieces" class="mega-collection-item menu-link-close">
+            <h4>PILOT’S WATCHES</h4>
+            <p>Engineered as precision cockpit navigation tools for aviators.</p>
+          </a>
+          <a href="#hero-stage" class="mega-collection-item menu-link-close">
+            <h4>MECHANICAL DECONSTRUCTION</h4>
+            <p>Interactive 3D caliber exploded anatomy and reassembly showcase.</p>
+          </a>
+          <a href="#timepieces" class="mega-collection-item menu-link-close">
+            <h4>INGENIEUR</h4>
+            <p>Technical sports watch with antimagnetic architecture by Gérald Genta.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Manufacture & Innovation -->
+      <div>
+        <span class="mega-menu-col-title">SWISS MANUFACTURE</span>
+        <ul class="mega-link-list">
+          <li><a href="#manufacture" class="menu-link-close">The Manufakturzentrum</a></li>
+          <li><a href="#manufacture" class="menu-link-close">Pellaton Winding System</a></li>
+          <li><a href="#manufacture" class="menu-link-close">Ceratanium® Metallurgy</a></li>
+          <li><a href="#manufacture" class="menu-link-close">In-House Calibre Families</a></li>
+          <li><a href="#stories" class="menu-link-close">Sustainability &amp; RJC</a></li>
+          <li><a href="#stories" class="menu-link-close">The Journal</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Client Services -->
+      <div>
+        <span class="mega-menu-col-title">SERVICES &amp; SALONS</span>
+        <ul class="mega-link-list">
+          <li><a href="#boutiques" class="menu-link-close">Book an Appointment</a></li>
+          <li><a href="#boutiques" class="menu-link-close">Boutique Locator</a></li>
+          <li><a href="#boutiques" class="menu-link-close">My IWC 8-Year Warranty</a></li>
+          <li><a href="#boutiques" class="menu-link-close">Maintenance &amp; Servicing</a></li>
+          <li><a href="#boutiques" class="menu-link-close">Contact Master Horologist</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PRESERVED HERO & DUAL-VIDEO CANVAS STAGE (550vh Scroll Container)
+       ========================================================================== -->
+  <section class="hero-scroll-container" id="hero-stage">
+    <div class="hero-sticky-frame">
+      <!-- 60fps/120fps Hardware-Accelerated Canvas Engine -->
+      <canvas id="watch-canvas" aria-label="Interactive 3D Mechanical Watch Scroll Deconstruction"></canvas>
+      <div class="canvas-vignette"></div>
+
+      <!-- Stage 1: Hero Cover Overlay (Scroll Progress: 0.00 - 0.15) -->
+      <div class="stage-overlay hero-overlay" id="hero-overlay">
+        <div class="hero-meta">
+          <span class="hero-badge">OYSTER PERPETUAL</span>
+          <span class="hero-badge">SUPERLATIVE CHRONOMETER</span>
+        </div>
+
+        <div class="hero-header-block">
+          <p class="hero-series-tag">GENÈVE • 1953 — 2026</p>
+          <h1 class="hero-main-title">SUBMARINER<br>DATE</h1>
+          <p class="hero-subtitle">
+            The benchmark of aquatic horology. Machined from solid 904L Oystersteel, paired with an emerald Cerachrom ceramic bezel and the in-house Calibre 3235 Perpetual movement.
+          </p>
+
+          <div class="hero-specs-row">
+            <div class="hero-spec-item">
+              <span class="hero-spec-label">DIAMETER</span>
+              <span class="hero-spec-val">41.0 MM</span>
+            </div>
+            <div class="hero-spec-item">
+              <span class="hero-spec-label">DEPTH RATING</span>
+              <span class="hero-spec-val">300 M / 1,000 FT</span>
+            </div>
+            <div class="hero-spec-item">
+              <span class="hero-spec-label">POWER RESERVE</span>
+              <span class="hero-spec-val">~70 HOURS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-prompt-box">
+          <span class="scroll-prompt-text">SCROLL TO DECONSTRUCT</span>
+          <div class="scroll-indicator-arrow"></div>
+        </div>
+      </div>
+
+      <!-- Stage 2: Pinned Exploded Anatomy Inspection (Scroll Progress: 0.38 - 0.65) -->
+      <div class="exploded-overlay" id="exploded-overlay">
+        <!-- SVG Vector Leader Lines Layer -->
+        <svg class="exploded-svg-lines" id="exploded-svg-lines"></svg>
+
+        <!-- Component 01: Cerachrom Bezel & Sapphire -->
+        <div class="component-card card-bezel" id="card-bezel" data-component="bezel">
+          <span class="card-num">01 / BEZEL</span>
+          <h3 class="card-title">CERACHROM BEZEL</h3>
+          <p class="card-micro-spec">Unidirectional 60-min insert • Mohs 9.0</p>
+        </div>
+
+        <!-- Component 02: Sunburst Emerald Dial -->
+        <div class="component-card card-dial" id="card-dial" data-component="dial">
+          <span class="card-num">02 / DIAL</span>
+          <h3 class="card-title">EMERALD SUNRAY DIAL</h3>
+          <p class="card-micro-spec">18 ct gold appliques • Chromalight</p>
+        </div>
+
+        <!-- Component 03: Calibre 3235 Perpetual Movement -->
+        <div class="component-card card-calibre" id="card-calibre" data-component="calibre">
+          <span class="card-num">03 / CALIBRE</span>
+          <h3 class="card-title">CALIBRE 3235 PERPETUAL</h3>
+          <p class="card-micro-spec">In-house self-winding • 70h reserve</p>
+        </div>
+
+        <!-- Component 04: Monobloc 904L Oystersteel Middle Case -->
+        <div class="component-card card-case" id="card-case" data-component="case">
+          <span class="card-num">04 / CASE</span>
+          <h3 class="card-title">904L OYSTERSTEEL</h3>
+          <p class="card-micro-spec">Monobloc aerospace superalloy • 300 m</p>
+        </div>
+
+        <!-- Component 05: Hermetic Fluted Caseback & Oysterlock -->
+        <div class="component-card card-caseback" id="card-caseback" data-component="caseback">
+          <span class="card-num">05 / SEAL</span>
+          <h3 class="card-title">HERMETIC FLUTED SEAL</h3>
+          <p class="card-micro-spec">Screw-down caseback • Triplock crown</p>
+        </div>
+
+        <!-- Bottom Component Selector Toolbar (Classy Minimalist Text Buttons) -->
+        <div class="exploded-toolbar">
+          <button class="toolbar-pill active" data-target="bezel">01 BEZEL</button>
+          <button class="toolbar-pill" data-target="dial">02 DIAL</button>
+          <button class="toolbar-pill" data-target="calibre">03 CALIBRE</button>
+          <button class="toolbar-pill" data-target="case">04 CASE</button>
+          <button class="toolbar-pill" data-target="caseback">05 SEAL</button>
+        </div>
+      </div>
+
+      <!-- Stage 3: Macro Reassembly & Crown Showcase (Scroll Progress: 0.85 - 1.00) -->
+      <div class="macro-overlay" id="macro-overlay">
+        <div class="macro-content-box">
+          <div class="macro-eyebrow">
+            <span class="macro-eyebrow-accent"></span>
+            <p class="macro-tag">HERMETIC ENGINEERING</p>
+          </div>
+          <h2 class="macro-title">THE ART<br>OF THE SEAL</h2>
+          <p class="macro-desc">
+            The Triplock winding crown is a patented triple waterproofness system designed specifically for extreme depths. Comprising 10 individual components crafted from 904L Oystersteel, it screws down securely against the case to form an impenetrable submarine vault.
+          </p>
+          <a href="#timepieces" class="macro-cta">
+            <span class="macro-cta-label">EXPLORE THE COLLECTION</span>
+            <svg class="macro-cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2.5 7H11.5M11.5 7L7.5 3M11.5 7L7.5 11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 1: THE TIMEPIECES — IWC COLLECTION SHOWCASE (iwc.com Inspired)
+       ========================================================================== -->
+  <section class="section-iwc" id="timepieces">
+    <div class="section-inner">
+      <div class="section-head-editorial">
+        <span class="editorial-tag">COLLECTION SHOWCASE</span>
+        <h2 class="editorial-title">THE TIMEPIECES</h2>
+        <p class="editorial-subtitle">
+          Over 150 years of relentless mechanical pursuit. Explore the masterpieces of Swiss engineering crafted in our Schaffhausen ateliers.
+        </p>
+
+        <!-- Filter Bar -->
+        <div class="collection-filter-bar">
+          <button class="filter-btn active" data-filter="all">ALL TIMEPIECES</button>
+          <button class="filter-btn" data-filter="portugieser">PORTUGIESER</button>
+          <button class="filter-btn" data-filter="pilot">PILOT’S WATCHES</button>
+          <button class="filter-btn" data-filter="special">SPECIAL EDITIONS</button>
+        </div>
+      </div>
+
+      <!-- 4 High-Definition Product Cards -->
+      <div class="product-grid">
+        <!-- Watch 1: Portugieser Chronograph -->
+        <div class="product-card" data-category="portugieser">
+          <div class="product-image-wrap">
+            <span class="product-badge-flag">ICONIC</span>
+            <img src="assets/images/iwc_portugieser.jpg" alt="IWC Portugieser Chronograph" class="product-img" loading="lazy">
+          </div>
+          <div class="product-details">
+            <div>
+              <p class="product-ref">REF. IW371605</p>
+              <h3 class="product-name">PORTUGIESER CHRONOGRAPH</h3>
+              <p class="product-desc">
+                Stainless steel case with crisp silver-plated dial, blued hands, applied Arabic numerals, and alligator leather strap. Powered by the IWC-manufactured 69355 calibre.
+              </p>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">$8,400</span>
+              <a href="#boutiques" class="btn-card-action">INQUIRE SALON →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Watch 2: Pilot's Watch Chronograph 41 TOP GUN Ceratanium -->
+        <div class="product-card" data-category="pilot">
+          <div class="product-image-wrap">
+            <span class="product-badge-flag">CERATANIUM®</span>
+            <img src="assets/images/iwc_topgun.jpg" alt="IWC Pilot's Watch Chronograph 41 TOP GUN" class="product-img" loading="lazy">
+          </div>
+          <div class="product-details">
+            <div>
+              <p class="product-ref">REF. IW389401</p>
+              <h3 class="product-name">PILOT’S WATCH 41 TOP GUN</h3>
+              <p class="product-desc">
+                Patented Ceratanium® case combining titanium lightness with ceramic hardness. Tactical cockpit dial with luminescent indices and IWC-manufactured 69385 calibre.
+              </p>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">$12,600</span>
+              <a href="#boutiques" class="btn-card-action">INQUIRE SALON →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Watch 3: Submariner Date — Mechanical Deconstruction Special Edition -->
+        <div class="product-card" data-category="special">
+          <div class="product-image-wrap">
+            <span class="product-badge-flag">DECONSTRUCTED</span>
+            <img src="assets/images/clean_exploded_frame.webp" alt="Submariner Date Exploded Edition" class="product-img" loading="lazy">
+          </div>
+          <div class="product-details">
+            <div>
+              <p class="product-ref">REF. M126610LV</p>
+              <h3 class="product-name">SUBMARINER DATE 3D</h3>
+              <p class="product-desc">
+                Emerald Cerachrom ceramic bezel with 904L aerospace Oystersteel. Showcased through our interactive scroll deconstruction revealing all 5 modular components.
+              </p>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">$14,200</span>
+              <a href="#hero-stage" class="btn-card-action">INSPECT 3D SCROLL ↑</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Watch 4: Ingenieur Automatic 40 / Macro Crown Edition -->
+        <div class="product-card" data-category="special">
+          <div class="product-image-wrap">
+            <span class="product-badge-flag">HERMETIC SEAL</span>
+            <img src="assets/images/clean_macro_frame.webp" alt="Ingenieur Macro Crown Edition" class="product-img" loading="lazy">
+          </div>
+          <div class="product-details">
+            <div>
+              <p class="product-ref">REF. IW328901</p>
+              <h3 class="product-name">HERMETIC CROWN EDITION</h3>
+              <p class="product-desc">
+                High-magnification macro engineering focusing on the fluted Triplock winding crown with triple hermetic seal zones and knurled ceramic bezel tolerances.
+              </p>
+            </div>
+            <div class="product-footer-row">
+              <span class="product-price">$11,700</span>
+              <a href="#boutiques" class="btn-card-action">INQUIRE SALON →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: SWISS MANUFACTURE & ENGINEERING (iwc.com Split Layout)
+       ========================================================================== -->
+  <section class="section-iwc" id="manufacture">
+    <div class="section-inner">
+      <div class="manufacture-split">
+        <!-- Media Column: HD Realistic Photography -->
+        <div class="manufacture-media-col">
+          <div class="manufacture-featured-img-wrap">
+            <img src="assets/images/iwc_manufacture.jpg" alt="IWC Manufakturzentrum Schaffhausen" loading="lazy">
+          </div>
+          <div class="manufacture-secondary-img-wrap">
+            <img src="assets/images/iwc_craftsmanship.jpg" alt="Master Watchmaker Movement Assembly" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Text Column: Swiss Haute Horlogerie Story -->
+        <div class="manufacture-text-col">
+          <span class="editorial-tag">ENGINEERED FOR EXTREMES</span>
+          <h2 class="manufacture-headline">THE MANUFAKTURZENTRUM SCHAFFHAUSEN</h2>
+          <p class="manufacture-lead">
+            In our state-of-the-art manufacture centre in Schaffhausen, Switzerland, we combine traditional horological craftsmanship with the most advanced precision machining on earth. Every component is tested under simulated 30G impacts, extreme temperature variations, and magnetic fields.
+          </p>
+
+          <div class="pillars-grid">
+            <div class="pillar-item">
+              <span class="pillar-num">01 / PELLATON</span>
+              <h4 class="pillar-title">PELLATON WINDING</h4>
+              <p class="pillar-desc">
+                Patented bidirectional pawl-winding system utilizing virtually wear-free black and white zirconium oxide ceramic parts.
+              </p>
+            </div>
+
+            <div class="pillar-item">
+              <span class="pillar-num">02 / CERATANIUM®</span>
+              <h4 class="pillar-title">SPACE METALLURGY</h4>
+              <p class="pillar-desc">
+                Developed over five years: a proprietary alloy fusing the lightweight toughness of titanium with the scratchproof hardness of ceramic.
+              </p>
+            </div>
+
+            <div class="pillar-item">
+              <span class="pillar-num">03 / CALIBRES</span>
+              <h4 class="pillar-title">IN-HOUSE CALIBRES</h4>
+              <p class="pillar-desc">
+                Over 150 years of mechanical calibres manufactured in-house, featuring 7-day power reserves and perpetual calendars.
+              </p>
+            </div>
+
+            <div class="pillar-item">
+              <span class="pillar-num">04 / MY IWC</span>
+              <h4 class="pillar-title">8-YEAR WARRANTY</h4>
+              <p class="pillar-desc">
+                Every timepiece registered through My IWC receives an international warranty extension from 2 to 8 years.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <a href="#boutiques" class="btn-iwc-pill">DISCOVER OUR ATELIER</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: THE WORLD OF IWC — EDITORIAL JOURNAL (iwc.com Standard)
+       ========================================================================== -->
+  <section class="section-iwc" id="stories">
+    <div class="section-inner">
+      <div class="section-head-editorial">
+        <span class="editorial-tag">THE WORLD OF IWC</span>
+        <h2 class="editorial-title">THE JOURNAL</h2>
+        <p class="editorial-subtitle">
+          Stories of engineering, sustainable luxury, aviation pioneers, and the master artisans who shape time in Schaffhausen.
+        </p>
+      </div>
+
+      <div class="stories-grid">
+        <!-- Story 1 -->
+        <article class="story-card">
+          <div class="story-media">
+            <img src="assets/images/iwc_manufacture.jpg" alt="Architecture of Time" loading="lazy">
+          </div>
+          <div class="story-body">
+            <div>
+              <div class="story-meta-row">
+                <span class="story-category">ARCHITECTURE</span>
+                <span class="story-read-time">5 MIN READ</span>
+              </div>
+              <h3 class="story-title">THE ARCHITECTURE OF MECHANICAL PURITY</h3>
+              <p class="story-excerpt">
+                Step inside the glass-and-steel Manufakturzentrum in Schaffhausen, where cleanroom tolerances and traditional hand-finishing coalesce.
+              </p>
+            </div>
+            <a href="#boutiques" class="story-link">READ STORY →</a>
+          </div>
+        </article>
+
+        <!-- Story 2 -->
+        <article class="story-card">
+          <div class="story-media">
+            <img src="assets/images/iwc_topgun.jpg" alt="Evolution of Ceratanium" loading="lazy">
+          </div>
+          <div class="story-body">
+            <div>
+              <div class="story-meta-row">
+                <span class="story-category">INNOVATION</span>
+                <span class="story-read-time">4 MIN READ</span>
+              </div>
+              <h3 class="story-title">CERATANIUM®: REDEFINING SPACE-AGE LUXURY</h3>
+              <p class="story-excerpt">
+                How IWC materials engineers heated a bespoke titanium alloy in an industrial kiln to create an unscratchable, pitch-black tactical case.
+              </p>
+            </div>
+            <a href="#boutiques" class="story-link">READ STORY →</a>
+          </div>
+        </article>
+
+        <!-- Story 3 -->
+        <article class="story-card">
+          <div class="story-media">
+            <img src="assets/images/iwc_craftsmanship.jpg" alt="Art of Hand Finishing" loading="lazy">
+          </div>
+          <div class="story-body">
+            <div>
+              <div class="story-meta-row">
+                <span class="story-category">CRAFTSMANSHIP</span>
+                <span class="story-read-time">6 MIN READ</span>
+              </div>
+              <h3 class="story-title">THE HAND-APPLIED CÔTES DE GENÈVE FINISH</h3>
+              <p class="story-excerpt">
+                An intimate look into how our master horologists chamfer edges to mirror perfection and apply circular graining to caliber bridge plates.
+              </p>
+            </div>
+            <a href="#boutiques" class="story-link">READ STORY →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: BOUTIQUE LOCATOR & CONCIERGE APPOINTMENTS
+       ========================================================================== -->
+  <section class="section-iwc" id="boutiques">
+    <div class="section-inner">
+      <div class="section-head-editorial">
+        <span class="editorial-tag">PRIVATE CLIENT SALONS</span>
+        <h2 class="editorial-title">FIND A BOUTIQUE</h2>
+        <p class="editorial-subtitle">
+          Experience the collection in person. Schedule a private consultation with a certified IWC Horological Specialist in our flagship boutiques.
+        </p>
+      </div>
+
+      <div class="boutique-wrapper">
+        <!-- Left: Interactive City Selector -->
+        <div class="boutique-nav-col">
+          <span class="editorial-tag">FLAGSHIP DESTINATIONS</span>
+          <div class="boutique-cities-list">
+            <button class="city-tab active" data-city="zurich">
+              <span>ZURICH — BAHNHOFSTRASSE</span>
+              <span>→</span>
+            </button>
+            <button class="city-tab" data-city="geneva">
+              <span>GENEVA — RUE DU RHÔNE</span>
+              <span>→</span>
+            </button>
+            <button class="city-tab" data-city="london">
+              <span>LONDON — NEW BOND STREET</span>
+              <span>→</span>
+            </button>
+            <button class="city-tab" data-city="newyork">
+              <span>NEW YORK — MADISON AVENUE</span>
+              <span>→</span>
+            </button>
+            <button class="city-tab" data-city="tokyo">
+              <span>TOKYO — GINZA MAISON</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <!-- Address Preview Box -->
+          <div class="city-address-preview" id="city-preview-box">
+            <h5 id="preview-city-name">IWC FLAGSHIP BOUTIQUE ZURICH</h5>
+            <p id="preview-city-address">Bahnhofstrasse 61, 8001 Zurich, Switzerland<br>Telephone: +41 44 211 18 68<br>Mon – Sat: 10:00 – 18:30</p>
+          </div>
+        </div>
+
+        <!-- Right: Appointment Booking Form -->
+        <div class="appointment-form-col">
+          <form id="appointment-form">
+            <div class="form-field-group">
+              <label class="form-field-label" for="app-name">FULL NAME</label>
+              <input type="text" id="app-name" class="form-field-input" placeholder="Your Title & Full Name" required>
+            </div>
+
+            <div class="form-field-group">
+              <label class="form-field-label" for="app-email">EMAIL ADDRESS</label>
+              <input type="email" id="app-email" class="form-field-input" placeholder="client@luxury.com" required>
+            </div>
+
+            <div class="form-field-group">
+              <label class="form-field-label" for="app-timeframe">PREFERRED TIMEFRAME</label>
+              <select id="app-timeframe" class="form-field-select" required>
+                <option value="immediate">Within 48 Hours</option>
+                <option value="week">This Week</option>
+                <option value="saturday">Saturday VIP Salon</option>
+                <option value="month">Next Month</option>
+              </select>
+            </div>
+
+            <div class="form-field-group">
+              <label class="form-field-label" for="app-notes">WATCH OF INTEREST / SPECIAL REQUESTS</label>
+              <textarea id="app-notes" class="form-field-input" rows="3" placeholder="Portugieser Chronograph, Pilot's Watch, or Submariner 3D Deconstruction..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-iwc-pill" style="width: 100%; padding: 1.1rem; justify-content: center; background: #fff; color: #000; font-weight: 600;">
+              CONFIRM APPOINTMENT REQUEST
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SIGNATURE IWC FOOTER (iwc.com Standard)
+       ========================================================================== -->
+  <footer class="iwc-footer" id="footer">
+    <div class="footer-top-grid">
+      <!-- Col 1: Timepieces -->
+      <div>
+        <span class="footer-col-title">TIMEPIECES</span>
+        <ul class="footer-links-list">
+          <li><a href="#timepieces">Portugieser</a></li>
+          <li><a href="#timepieces">Pilot’s Watches</a></li>
+          <li><a href="#timepieces">Ingenieur</a></li>
+          <li><a href="#timepieces">Portofino</a></li>
+          <li><a href="#timepieces">Aquatimer</a></li>
+          <li><a href="#hero-stage">3D Mechanical Deconstruction</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 2: The World of IWC -->
+      <div>
+        <span class="footer-col-title">THE MANUFACTURE</span>
+        <ul class="footer-links-list">
+          <li><a href="#manufacture">The Manufakturzentrum</a></li>
+          <li><a href="#manufacture">History &amp; Heritage</a></li>
+          <li><a href="#manufacture">Pellaton &amp; Ceratanium®</a></li>
+          <li><a href="#stories">The Journal</a></li>
+          <li><a href="#stories">Sustainability &amp; RJC</a></li>
+          <li><a href="#boutiques">Museum Schaffhausen</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Customer Care -->
+      <div>
+        <span class="footer-col-title">CUSTOMER CARE</span>
+        <ul class="footer-links-list">
+          <li><a href="#boutiques">Book an Appointment</a></li>
+          <li><a href="#boutiques">Boutique Locator</a></li>
+          <li><a href="#boutiques">My IWC 8-Year Warranty</a></li>
+          <li><a href="#boutiques">Servicing &amp; Maintenance</a></li>
+          <li><a href="#boutiques">Order Tracking</a></li>
+          <li><a href="#boutiques">Contact Concierge</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Newsletter -->
+      <div class="newsletter-box">
+        <span class="footer-col-title">NEWSLETTER</span>
+        <p>Subscribe to receive exclusive invitations, novelties previews, and horological journal releases from Schaffhausen.</p>
+        <form class="newsletter-form-row" id="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Your email address" required>
+          <button type="submit" class="newsletter-submit">JOIN</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Legal Bar -->
+    <div class="footer-bottom-bar">
+      <div class="footer-country-picker">
+        <span>🌐 INTERNATIONAL / ENGLISH</span>
+      </div>
+
+      <p class="footer-legal-copy">
+        © 2026 IWC Schaffhausen, Branch of Richemont International SA. All Rights Reserved.
+      </p>
+
+      <div class="footer-legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Legal Notice</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>

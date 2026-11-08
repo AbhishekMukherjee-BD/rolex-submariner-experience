@@ -1,0 +1,1714 @@
+/* ==========================================================================
+   IWC SCHAFFHAUSEN — HAUTE HORLOGERIE DESIGN SYSTEM
+   Inspiration: iwc.com/ww-en
+   Aesthetic: Minimalist, Sophisticated Swiss Luxury, Monochrome & High Contrast
+   ========================================================================== */
+
+:root {
+  /* IWC Monochrome Palette */
+  --iwc-black: #0B0B0B;
+  --iwc-bg-canvas: #080808;
+  --iwc-surface: #121212;
+  --iwc-surface-elevated: #181818;
+  --iwc-surface-card: #141414;
+  --iwc-surface-card-hover: #1c1c1c;
+  
+  --iwc-border-subtle: #202020;
+  --iwc-border-medium: #2C2C2C;
+  --iwc-border-active: #484848;
+  
+  --iwc-white: #FFFFFF;
+  --iwc-off-white: #F5F5F5;
+  --iwc-text-secondary: #A6A6A6;
+  --iwc-text-muted: #707070;
+  --iwc-text-dim: #4D4D4D;
+  
+  /* Restrained Horological Accents (Hero & Technical Leader Lines) */
+  --gold-metallic: #C8A858;
+  --gold-bright: #E8C868;
+  --gold-subtle: rgba(200, 168, 88, 0.2);
+  --ceramic-green: #1D4B34;
+  
+  /* Typography */
+  --font-serif: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Transitions */
+  --ease-swiss: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-fast: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--iwc-black);
+  color: var(--iwc-white);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+  background: var(--iwc-black);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Selection */
+::selection {
+  background: var(--iwc-white);
+  color: #000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================================
+   IWC SIGNATURE STICKY HEADER
+   ========================================================================== */
+.iwc-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 76px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3.5rem;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.35s var(--ease-swiss);
+}
+
+.iwc-header.scrolled {
+  height: 66px;
+  background: rgba(11, 11, 11, 0.94) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--iwc-border-subtle) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Left: Menu Trigger & Nav Links */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--iwc-white);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  transition: opacity 0.25s ease;
+}
+
+.menu-trigger:hover {
+  opacity: 0.75;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 18px;
+}
+
+.hamburger-lines span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--iwc-white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.header-nav-item a {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--iwc-text-secondary);
+  text-transform: uppercase;
+  position: relative;
+  padding: 0.4rem 0;
+  transition: color 0.3s ease;
+}
+
+.header-nav-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--iwc-white);
+  transition: width 0.3s var(--ease-swiss);
+}
+
+.header-nav-item a:hover {
+  color: var(--iwc-white);
+}
+
+.header-nav-item a:hover::after {
+  width: 100%;
+}
+
+/* Center: Iconic IWC Schaffhausen Logo */
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.iwc-logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1;
+}
+
+.iwc-logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  color: var(--iwc-white);
+  margin-left: 0.26em; /* balance letter spacing */
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+.iwc-logo-sub {
+  font-family: var(--font-sans);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  color: var(--iwc-text-muted);
+  text-transform: uppercase;
+  margin-top: 3px;
+  margin-left: 0.34em;
+}
+
+.iwc-logo-link:hover .iwc-logo-text {
+  transform: scale(1.02);
+}
+
+/* Right: Utilities & Concierge CTA */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--iwc-text-secondary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-btn:hover {
+  color: var(--iwc-white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+.btn-iwc-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  background: transparent;
+  color: var(--iwc-white);
+  border: 1px solid var(--iwc-white);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all 0.3s var(--ease-swiss);
+}
+
+.btn-iwc-pill:hover {
+  background: var(--iwc-white);
+  color: var(--iwc-black);
+}
+
+/* ==========================================================================
+   OFF-CANVAS SLIDE-OUT MEGA MENU
+   ========================================================================== */
+.mega-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(8, 8, 8, 0.96);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease-swiss), visibility 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mega-menu-header {
+  height: 76px;
+  padding: 0 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--iwc-border-subtle);
+}
+
+.btn-close-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--iwc-white);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mega-menu-content {
+  flex: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 4rem 3.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  overflow-y: auto;
+}
+
+.mega-menu-col-title {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--iwc-text-muted);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.mega-collections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.mega-collection-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--iwc-border-subtle);
+  border-radius: 4px;
+  background: var(--iwc-surface);
+  transition: all 0.3s ease;
+}
+
+.mega-collection-item:hover {
+  border-color: var(--iwc-border-active);
+  background: var(--iwc-surface-elevated);
+  transform: translateY(-2px);
+}
+
+.mega-collection-item h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+}
+
+.mega-collection-item p {
+  font-size: 0.78rem;
+  color: var(--iwc-text-secondary);
+  line-height: 1.5;
+}
+
+.mega-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mega-link-list a {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--iwc-text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.mega-link-list a:hover {
+  color: var(--iwc-white);
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   PRESERVED HERO CANVAS SECTION (550vh Scroll Animation)
+   ========================================================================== */
+.hero-scroll-container {
+  position: relative;
+  width: 100vw;
+  height: 550vh;
+  background: var(--iwc-black);
+}
+
+.hero-sticky-frame {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, #0F3F28 0%, #06120D 60%, #030806 100%);
+}
+
+#watch-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 10;
+}
+
+.canvas-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 12;
+  box-shadow: none !important;
+  display: none !important;
+}
+
+/* Loader Curtain */
+.loader-curtain {
+  position: fixed;
+  inset: 0;
+  background: #0B0B0B;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.6s ease;
+}
+
+.loader-curtain.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none !important;
+}
+
+.loader-logo-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--iwc-white);
+  text-transform: uppercase;
+}
+
+.loader-sub-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-metallic);
+  text-transform: uppercase;
+}
+
+.loader-bar-track {
+  width: 240px;
+  height: 2px;
+  background: var(--iwc-border-subtle);
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--iwc-white);
+  transition: width 0.15s ease-out;
+}
+
+/* Stage 1: Hero Overlay */
+.stage-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6.5rem 4rem 3.5rem;
+  transition: opacity 0.5s var(--ease-swiss), transform 0.5s var(--ease-swiss);
+}
+
+.hero-overlay.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(-20px);
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(6, 18, 13, 0.45);
+  border: 1px solid rgba(200, 168, 88, 0.4);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-metallic);
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.hero-header-block {
+  max-width: 620px;
+}
+
+.hero-series-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.26em;
+  color: var(--gold-metallic);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+  color: var(--iwc-white);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 300;
+  max-width: 480px;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-specs-row {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.hero-spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.hero-spec-val {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #E1E6E2;
+  letter-spacing: 0.08em;
+}
+
+.scroll-prompt-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+}
+
+.scroll-prompt-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: var(--gold-metallic);
+  text-transform: uppercase;
+}
+
+.scroll-indicator-arrow {
+  width: 22px;
+  height: 38px;
+  border: 1px solid var(--iwc-border-active);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-indicator-arrow::after {
+  content: "";
+  width: 4px;
+  height: 8px;
+  background: var(--iwc-white);
+  border-radius: 2px;
+  margin-top: 6px;
+  animation: iwcScrollDot 2s infinite ease-in-out;
+}
+
+@keyframes iwcScrollDot {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(14px); opacity: 0; }
+  61% { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Stage 2: Exploded Anatomy Inspection */
+.exploded-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s var(--ease-swiss), visibility 0.5s;
+}
+
+.exploded-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.exploded-svg-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 31;
+}
+
+.leader-line {
+  fill: none !important;
+  stroke: var(--gold-metallic);
+  stroke-width: 1.2;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  transition: stroke-dashoffset 0.8s var(--ease-swiss);
+  filter: drop-shadow(0 0 6px rgba(200, 168, 88, 0.6));
+}
+
+.exploded-overlay.active .leader-line {
+  stroke-dashoffset: 0;
+}
+
+.hotspot-dot {
+  fill: var(--gold-metallic);
+  stroke: var(--iwc-black);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px rgba(200, 168, 88, 0.8));
+}
+
+.component-card {
+  position: absolute;
+  pointer-events: auto;
+  width: auto;
+  max-width: 270px;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-left: 1.5px solid var(--gold-metallic) !important;
+  padding: 0.2rem 0 0.2rem 0.85rem !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition: all 0.3s var(--ease-swiss);
+  cursor: pointer;
+}
+
+.component-card:hover, .component-card.focused {
+  background: transparent !important;
+  border-left-color: var(--iwc-white) !important;
+  transform: translateY(-2px);
+}
+
+.card-num {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: var(--gold-metallic);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--iwc-white);
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.card-micro-spec {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.card-bezel   { top: 16%; left: 6%; }
+.card-dial    { bottom: 12%; left: 12%; }
+.card-calibre { top: 6%; left: 45%; transform: translateX(-50%); }
+.card-case    { bottom: 8%; right: 28%; }
+.card-caseback{ top: 15%; right: 5%; }
+
+/* Bottom Classy Text Buttons (No Enclosing Pill Bar) */
+.exploded-toolbar {
+  position: absolute;
+  bottom: 2.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  z-index: 35;
+}
+
+.toolbar-pill {
+  background: transparent !important;
+  border: none !important;
+  padding: 0.35rem 0 !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.toolbar-pill::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--gold-metallic);
+  transition: width 0.25s ease;
+}
+
+.toolbar-pill:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.toolbar-pill:hover::after,
+.toolbar-pill.active::after {
+  width: 100%;
+}
+
+.toolbar-pill.active {
+  color: var(--iwc-white) !important;
+  background: transparent !important;
+  font-weight: 600;
+}
+
+/* Stage 3: Macro Reassembly Overlay — Museum-Grade Haute Horlogerie Typography */
+.macro-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; /* Anchored in negative space right of the winding crown */
+  padding: 0 clamp(4rem, 6.5vw, 8rem);
+  opacity: 0;
+  background: transparent !important;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease-swiss), transform 0.7s var(--ease-swiss);
+}
+
+.macro-overlay.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.macro-content-box {
+  max-width: 480px;
+  text-align: left;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.macro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.macro-eyebrow-accent {
+  display: inline-block;
+  width: 32px;
+  height: 1.5px;
+  background: var(--gold-metallic);
+  opacity: 0.95;
+  flex-shrink: 0;
+}
+
+.macro-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: #DFC07A;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+.macro-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 3.4vw, 3.3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  color: var(--iwc-white);
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);
+}
+
+.macro-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.96rem, 1.05vw, 1.04rem);
+  line-height: 1.82;
+  letter-spacing: 0.015em;
+  color: rgba(255, 255, 255, 0.90);
+  font-weight: 350;
+  max-width: 460px;
+  margin-bottom: 2.6rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Bespoke Swiss Horology Collection CTA (Zero Black Shade) */
+.macro-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 2.4rem;
+  background: transparent !important;
+  border: 1px solid rgba(200, 168, 88, 0.65);
+  border-radius: 999px;
+  color: var(--iwc-white);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(200, 168, 88, 0.15);
+  transition: all 0.35s var(--ease-swiss);
+}
+
+.macro-cta-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  transition: color 0.35s var(--ease-swiss);
+}
+
+.macro-cta-arrow {
+  color: var(--gold-metallic);
+  transition: transform 0.35s var(--ease-swiss), color 0.35s var(--ease-swiss);
+}
+
+.macro-cta:hover {
+  background: var(--gold-metallic) !important;
+  border-color: var(--gold-metallic);
+  color: #06120D !important;
+  box-shadow: 0 8px 30px rgba(200, 168, 88, 0.35);
+  transform: translateY(-2px);
+}
+
+.macro-cta:hover .macro-cta-label {
+  color: #06120D !important;
+}
+
+.macro-cta:hover .macro-cta-arrow {
+  color: #06120D !important;
+  transform: translateX(4px);
+}
+
+.macro-cta-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: inherit;
+  transition: color 0.35s var(--ease-swiss);
+}
+
+.macro-cta-arrow {
+  color: var(--gold-metallic);
+  transition: transform 0.35s var(--ease-swiss), color 0.35s var(--ease-swiss);
+}
+
+.macro-cta:hover {
+  background: var(--gold-metallic) !important;
+  border-color: var(--gold-metallic);
+  color: #06120D;
+  box-shadow: 0 8px 26px rgba(200, 168, 88, 0.3);
+  transform: translateY(-2px);
+}
+
+.macro-cta:hover .macro-cta-arrow {
+  color: #06120D;
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   SECTION 1: THE IWC COLLECTION SHOWCASE (iwc.com Inspired)
+   ========================================================================== */
+.section-iwc {
+  position: relative;
+  z-index: 50;
+  background: var(--iwc-bg-canvas);
+  padding: 8rem 4rem;
+  border-top: 1px solid var(--iwc-border-subtle);
+  scroll-margin-top: 76px;
+}
+
+.section-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.section-head-editorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.editorial-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--iwc-text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.editorial-title {
+  font-family: var(--font-sans);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+  margin-bottom: 1.25rem;
+}
+
+.editorial-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--iwc-text-secondary);
+  max-width: 680px;
+  font-weight: 300;
+}
+
+/* Filter pills */
+.collection-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--iwc-border-subtle);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iwc-text-secondary);
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--iwc-white);
+  color: var(--iwc-white);
+}
+
+.filter-btn.active {
+  background: var(--iwc-white);
+  color: var(--iwc-black);
+  border-color: var(--iwc-white);
+}
+
+/* Product Cards Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.product-card {
+  background: var(--iwc-surface-card);
+  border: 1px solid var(--iwc-border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s var(--ease-swiss);
+  position: relative;
+}
+
+.product-card:hover {
+  background: var(--iwc-surface-card-hover);
+  border-color: var(--iwc-border-active);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.product-image-wrap {
+  width: 100%;
+  height: 340px;
+  background: #0E0E0E;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-swiss);
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.06);
+}
+
+.product-badge-flag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(11, 11, 11, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--iwc-border-medium);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--iwc-white);
+  text-transform: uppercase;
+}
+
+.product-details {
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.product-ref {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--iwc-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.product-name {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--iwc-white);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  line-height: 1.25;
+}
+
+.product-desc {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--iwc-text-secondary);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.product-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--iwc-border-subtle);
+}
+
+.product-price {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--iwc-white);
+}
+
+.btn-card-action {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.btn-card-action:hover {
+  border-color: var(--iwc-white);
+  color: var(--gold-metallic);
+}
+
+/* ==========================================================================
+   SECTION 2: SWISS MANUFACTURE & ENGINEERING (iwc.com Split Layout)
+   ========================================================================== */
+.manufacture-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.manufacture-media-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.manufacture-featured-img-wrap {
+  width: 100%;
+  height: 480px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--iwc-border-subtle);
+  position: relative;
+}
+
+.manufacture-featured-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-swiss);
+}
+
+.manufacture-featured-img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.manufacture-secondary-img-wrap {
+  width: 100%;
+  height: 280px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--iwc-border-subtle);
+}
+
+.manufacture-secondary-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.manufacture-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.manufacture-headline {
+  font-family: var(--font-sans);
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+  margin-bottom: 1.5rem;
+}
+
+.manufacture-lead {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--iwc-text-secondary);
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.pillar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--iwc-border-subtle);
+}
+
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--iwc-text-muted);
+}
+
+.pillar-title {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+}
+
+.pillar-desc {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--iwc-text-secondary);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   SECTION 3: THE WORLD OF IWC — EDITORIAL JOURNAL
+   ========================================================================== */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.story-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--iwc-surface-card);
+  border: 1px solid var(--iwc-border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.35s var(--ease-swiss);
+}
+
+.story-card:hover {
+  border-color: var(--iwc-border-active);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.story-media {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.story-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.story-card:hover .story-media img {
+  transform: scale(1.05);
+}
+
+.story-body {
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.story-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.story-category {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--iwc-text-muted);
+}
+
+.story-read-time {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--iwc-text-dim);
+}
+
+.story-title {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.35;
+  color: var(--iwc-white);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.story-excerpt {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--iwc-text-secondary);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.story-link {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.2s ease;
+}
+
+.story-card:hover .story-link {
+  gap: 0.8rem;
+}
+
+/* ==========================================================================
+   SECTION 4: BOUTIQUE LOCATOR & CONCIERGE APPOINTMENTS
+   ========================================================================== */
+.boutique-wrapper {
+  background: var(--iwc-surface);
+  border: 1px solid var(--iwc-border-subtle);
+  border-radius: 6px;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.boutique-nav-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.boutique-cities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.city-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  background: var(--iwc-surface-card);
+  border: 1px solid var(--iwc-border-subtle);
+  border-radius: 4px;
+  color: var(--iwc-white);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.city-tab:hover {
+  background: var(--iwc-surface-elevated);
+  border-color: var(--iwc-border-medium);
+}
+
+.city-tab.active {
+  border-color: var(--iwc-white);
+  background: var(--iwc-white);
+  color: var(--iwc-black);
+  font-weight: 600;
+}
+
+.city-address-preview {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-left: 2px solid var(--iwc-white);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.city-address-preview h5 {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+  margin-bottom: 0.5rem;
+}
+
+.city-address-preview p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--iwc-text-secondary);
+}
+
+/* Appointment Form */
+.appointment-form-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-field-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--iwc-text-muted);
+}
+
+.form-field-input, .form-field-select {
+  padding: 0.95rem 1.2rem;
+  background: var(--iwc-surface-card);
+  border: 1px solid var(--iwc-border-medium);
+  border-radius: 2px;
+  color: var(--iwc-white);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  transition: border-color 0.25s ease;
+}
+
+.form-field-input:focus, .form-field-select:focus {
+  outline: none;
+  border-color: var(--iwc-white);
+  background: var(--iwc-surface-elevated);
+}
+
+/* ==========================================================================
+   SIGNATURE IWC FOOTER (iwc.com Standard)
+   ========================================================================== */
+.iwc-footer {
+  position: relative;
+  z-index: 50;
+  background: #060606;
+  border-top: 1px solid var(--iwc-border-subtle);
+  padding: 6rem 4rem 3rem;
+}
+
+.footer-top-grid {
+  max-width: 1360px;
+  margin: 0 auto 5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3.5rem;
+}
+
+.footer-col-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--iwc-white);
+  margin-bottom: 1.8rem;
+  display: block;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.footer-links-list a {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--iwc-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer-links-list a:hover {
+  color: var(--iwc-white);
+}
+
+.newsletter-box p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--iwc-text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.newsletter-form-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: var(--iwc-surface);
+  border: 1px solid var(--iwc-border-medium);
+  border-radius: 2px;
+  color: var(--iwc-white);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--iwc-white);
+}
+
+.newsletter-submit {
+  padding: 0.75rem 1.4rem;
+  background: var(--iwc-white);
+  color: var(--iwc-black);
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.newsletter-submit:hover {
+  opacity: 0.85;
+}
+
+.footer-bottom-bar {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-top: 3rem;
+  border-top: 1px solid var(--iwc-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-country-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--iwc-text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-legal-copy {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--iwc-text-muted);
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.footer-legal-links a {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--iwc-text-muted);
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--iwc-white);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .stories-grid { grid-template-columns: 1fr; }
+  .manufacture-split { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-top-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .iwc-header { padding: 0 1.5rem; }
+  .header-nav-links { display: none; }
+  .boutique-wrapper { grid-template-columns: 1fr; padding: 2rem; }
+  .footer-top-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-bottom-bar { flex-direction: column; gap: 1.5rem; text-align: center; }
+  .mega-menu-content { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  .component-card { width: 240px; padding: 1rem; }
+  .macro-overlay {
+    padding: 0 2rem;
+    align-items: center;
+  }
+  .macro-content-box {
+    text-align: center;
+    max-width: 100%;
+  }
+  .macro-eyebrow {
+    justify-content: center;
+  }
+  .macro-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

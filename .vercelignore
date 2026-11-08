@@ -1,0 +1,15 @@
+.DS_Store
+.venv
+.git
+.github
+Melo
+PoseMatch
+asp cafe
+supoclip
+watermark remover
+last_frame
+scripts
+*.sales_backup
+process_logo_animation.py
+logo_loading_animation.webp
+Animate_logo_for_landing_page_*.mp4

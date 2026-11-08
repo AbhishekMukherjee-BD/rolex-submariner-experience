@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Environments
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+
+# Local backup files & scripts
+*.sales_backup
+process_logo_animation.py
+logo_loading_animation.webp
+Animate_logo_for_landing_page_*.mp4
+last_frame/
+scripts/
+
+# Unrelated project directories in workspace
+Melo/
+PoseMatch/
+asp cafe/
+supoclip/
+watermark remover/
+
+# Vercel
+.vercel
